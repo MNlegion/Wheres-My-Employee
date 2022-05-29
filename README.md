@@ -16,6 +16,9 @@
 ## Description
 A content management system where using Inquire and mysql2 to create, read, update, and delete user input records involving employee data, role specific data, and department data. 
 
+## Video Link to Application
+[![Watch the video](./src/Screenshot%202022-05-29%20141209.png)](https://drive.google.com/file/d/1MzGoz-DMwCTNzoEU0K3O6eGHKrG5CLMD/view)
+
 ## User Story
 - AS A business owner
 - I WANT to be able to view and manage the departments, roles, and employees in my company

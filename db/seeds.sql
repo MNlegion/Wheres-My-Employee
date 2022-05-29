@@ -54,6 +54,6 @@ VALUES
   ('Matsuma', 'Kitiyaka', 15, 14),
   ('Frank', 'Butierrez', 16, 14),
   ('Cheryl', 'Koch', 17, 15),
-  ('Robert', 'Foster', 17, 15),
+  ('Robert', 'Foster', 17, 15);
 
   
