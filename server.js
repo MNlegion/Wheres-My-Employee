@@ -215,3 +215,15 @@ const startMenu = async() => {
 }
 
 
+// startApp function to welcome user and routes to main startMenu function
+const startApp = async() => {
+  console.log('Welcome to Wheres My Employee!');
+  console.log('Select an option below:');
+
+  startMenu();
+}
+
+  
+
+// calls startApp function to begin app
+startApp();
