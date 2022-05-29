@@ -87,5 +87,68 @@ const updateEmployeeRoleQuestion = [
   },
 ]
 
+// Database functionality 
+const addRole = async() => {
+  const result = await inquirer.prompt(addRoleQuestions)
+  const sql = `INSERT INTO role (title, salary, department_id)
+  VALUES (?,?,?)`;
+  const params = [result.title, result.salary, result.department];
+
+  db.query(sql, params, function (err, results) {
+    console.log("");
+    console.table(results);
+  });
+  startMenu();
+}
+
+const addDepartment = async() => {
+  const result = await inquirer.prompt(addDepartmentQuestion)
+  const sql = `INSERT INTO department (name)
+  VALUES (?)`;
+  const params = [result.name];
+
+  db.query(sql, params, function (err, results) {
+    console.log("");
+    console.table(results);
+  });
+  startMenu();
+}
+
+const addEmployee = async() => {
+  const result = await inquirer.prompt(addEmployeeQuestions)
+  const sql = `INSERT INTO employee (first_name, last_name, role_id, manager_id)
+  VALUES (?,?,?,?)`;
+  const params = [result.first_name, result.last_name, result.role_id, result.manager_id];
+
+  db.query(sql, params, function (err, results) {
+    console.log("");
+    console.table(results);
+  });
+  startMenu();
+}
+
+const chooseEmployee = async() => {
+  const result = await inquirer.prompt(chooseEmployeeQuestion);
+
+  db.query('SELECT role.id, role.title FROM role', function (err, results) {
+          console.log("");
+          console.table(results);
+        });
+  
+  updateEmployeeRole(result.employee_id);
+}
+
+const updateEmployeeRole = async(employeeID) => {
+  const result = await inquirer.prompt(updateEmployeeRoleQuestion)
+  const sql = `UPDATE employee SET role_id = ${result.role_id}
+  WHERE id = ${employeeID}`;
+
+  db.query(sql, function (err, results) {
+    console.log("");
+    console.table(results);
+  });
+  startMenu();
+}
+
 
 
